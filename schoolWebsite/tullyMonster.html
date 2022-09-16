@@ -17,10 +17,10 @@
 </div>
 <form name="question">
 <p id="box2">Question - How long was the Tully Monster?</p> 
-Answer: <input type="text" name="answer" oninput="validate()"></input>
+Answer: <input type="text" name="answer"></input>
 <button type="button" onclick='validate()'>Show answer</button>
-<p>Question - Click below to find out where it lived.</p>
-<button onclick="document.getElementById('box').innerHTML = 'The Tully Monster grew to 35cm long.'">Show answer</button>
+<p id="box">Question - Click below to find out where it lived.</p>
+<button type="button" onclick="document.getElementById('box').innerHTML = 'The Tully Monster grew to 35cm long.'">Show answer</button>
 </form>
 
 <script>
