@@ -1,6 +1,5 @@
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>The Eiffel Tower</title>
 	<style> <!--Cannot connect to CSS file, so I put the CSS code in the HTML file-->
 body{margin: 0px; padding: 0px; background-color:white; font-family: Arial, Helvetica, "sans-serif"; font-size: 18px;
@@ -10,23 +9,23 @@ h2{font-size: 30px;}
 h3{color: white;}
 #page{max-width:800px;
 margin: 20px auto;
-padding: 30px; height: 650px;
+padding: 30px; height: 80%;
 background-color: #bfa475;}
-#header{padding: 5px; background-color: #655035; text-align: center;}
+#header{padding: 5px; background-color: #655035; text-align: center; width:100%;}
 img{border: double 10px white;}
 .list{color: #333300;}
-#right-column{float: right; width: 350px; text-align: left;}
+#right-column{float: right; width: 350px; text-align: left; position: fixed; top: 34%; left: 54%;}
 #right-column h2{font-size:1.2rem; font-weight: bold;}
 	</style>
 </head>
 <body>
 	<div id="page"> <!--Opening page div-->
-		<div id="left-column" style="float:left; text-align:center; width:400px;"> <!--Opening Div for left column-->
 			<div id="header">
 			<h1>La Tour Eiffel</h1>
 			</div>
-			<h2>Paris, France</h2>
-			<h3>Constructed 1887-1889</h3>
+			<h2 style="width: 100%; text-align: center;">Paris, France</h2>
+			<h3 style="width: 100%; text-align: center;">Constructed 1887-1889</h3>
+		<div id="left-column" style="float:left; text-align:center; width:400px;"> <!--Opening Div for left column-->
 
 			<img src="tour_eiffel.jpg", alt="Construction in 1888" width=400px height="320">
 			<p>
@@ -63,4 +62,3 @@ img{border: double 10px white;}
 </body>
 <div style="clear:both;"></div>
 </html>
-
