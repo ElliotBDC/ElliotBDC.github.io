@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #box2{
+                color: white;
+            } 
+        </style>
+    </head>
+    <body id="body">
+    <form name="question">
+        <p>First number:</p>
+        <input type="text" name="firstNum">
+        <p>Second number:</p>
+        <input type="text" name="secondNum"><br><br>
+        <button type="button" onclick="getSignPlus()">+</button><br> <br>
+        <button type="button" onclick="getSignMinus()">-</button><br><br>
+        <button type="button" onclick="getSignTimes()">*</button><br><br>
+        <button type="button" onclick="getSignDivide()">/</button>
+        <p>My answer: </p>
+        <input type="text" name = "answer"><br><br>
+        <p id="box"></p>
+        <button type="button" onclick="calculate()">Show answer!</button>
+    </form>
+    <p id="numW">Number wrong: </p>
+    <p id="numC">Number correct: </p>
+    <p id="perc">Percentage correct: </p>
+    <p id="box2"></p>
+    <script>
+        var numberCorrect = 0
+        var numberWrong = 0
+        var numberOfQuestions = 0
+        function getSignPlus() { 
+            var sign="+";
+            document.getElementById("box2").innerHTML = "+";
+       }
+        function getSignTimes() { 
+            var sign="*";   
+            document.getElementById("box2").innerHTML = "*";
+        }
+        function getSignMinus() {  
+            var sign="-";  
+            document.getElementById("box2").innerHTML = "-";
+        }
+        function getSignDivide() { 
+            var sign="/" ;  
+            document.getElementById("box2").innerHTML = "/";
+        }
+
+        var answer = 0;
+        function calculate() {
+            var numOne = parseFloat(document.forms["question"]["firstNum"].value);
+            console.log(numOne)
+            var numTwo = parseFloat(document.forms["question"]["secondNum"].value);
+            console.log(numTwo)
+            sign = document.getElementById("box2").textContent;
+            console.log(sign)
+            if (sign=="+") {
+                var answer = numOne+numTwo;
+            } else if (sign=="-") {
+                var answer = numOne-numTwo;
+            } else if (sign=="*") {
+                var answer = numOne*numTwo;
+            } else if (sign=="/") {
+                var answer = numOne/numTwo;
+            } 
+            document.getElementById("box").innerHTML = "Correct answer: " + answer;
+            numberOfQuestions = numberOfQuestions + 1
+            var userAnswer = parseFloat(document.forms["question"]["answer"].value); 
+            if (userAnswer == answer) {
+                numberCorrect = numberCorrect + 1
+            } else {
+                numberWrong = numberWrong + 1
+            }
+            document.getElementById("numC").innerHTML = "Number Correct: " + numberCorrect;
+            document.getElementById("numW").innerHTML = "Number Wrong: " + numberWrong;
+            document.getElementById("perc").innerHTML = "Percentage Correct: " + (numberCorrect / numberOfQuestions) * 100 + "%"; 
+            }
+    </script>
+    </body>
+</html>
