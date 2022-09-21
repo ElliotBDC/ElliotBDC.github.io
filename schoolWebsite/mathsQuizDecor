@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .input {border: 10px double rgb(41, 177, 184);}
+            #header {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+            .sign{color: black;}
+            #body {text-align: center;}
+            #header {text-align: center;}
+            #box2{
+                color: white;
+            } 
+        </style>
+    </head>
+    <body id="body">
+    <div id="header">
+        <h1>Elliot's Math Quiz</h1>
+    </div>
+    <form name="question">
+        <p><strong>First number:  </strong></p><input type="text" class = "input" name="firstNum">
+        <p><strong>Second number:  </strong></p><input type="text" class = "input" name="secondNum"><br><br>
+        <button type="button" id = "+" onclick="getSign(this)">+</button><br><br>
+        <button type="button" id = "-" onclick="getSign(this)">-</button><br><br>
+        <button type="button" id ="*" onclick="getSign(this)">*</button><br><br>
+        <button type="button" id = "/" onclick="getSign(this)">/</button>
+        <p>My answer: </p>
+        <input type="text" class = "input" name = "answer"><br><br>
+        <p id="box"></p>
+        <button type="button" onclick="calculate()">Show answer!</button>
+    </form>
+    <p id="numW">Number wrong: N/A</p>
+    <p id="numC">Number correct: N/A</p>
+    <p id="perc">Percentage correct: N/A</p>
+    <p id="box2"></p>
+    
+    <script>
+        var numberCorrect = 0
+        var numberWrong = 0
+        var numberOfQuestions = 0
+        function getSign(element) {
+            var id = element.id;
+            var sign = document.getElementById(id).textContent;
+            document.getElementById("box2").innerHTML = sign;
+            console.log(sign, id)
+        }
+
+        var answer = 0;
+        function calculate() {
+            var numOne = parseFloat(document.forms["question"]["firstNum"].value);
+            console.log(numOne)
+            var numTwo = parseFloat(document.forms["question"]["secondNum"].value);
+            console.log(numTwo)
+            sign = document.getElementById("box2").textContent;
+            console.log(sign)
+            if (sign=="+") {
+                var answer = numOne+numTwo;
+            } else if (sign=="-") {
+                var answer = numOne-numTwo;
+            } else if (sign=="*") {
+                var answer = numOne*numTwo;
+            } else if (sign=="/") {
+                var answer = numOne/numTwo;
+            } 
+            document.getElementById("box").innerHTML = "Correct answer: " + answer;
+            numberOfQuestions = numberOfQuestions + 1
+            var userAnswer = parseFloat(document.forms["question"]["answer"].value); 
+            if (userAnswer == answer) {
+                numberCorrect = numberCorrect + 1
+                document.getElementById("body").style.backgroundColor = "green";
+            } else {
+                numberWrong = numberWrong + 1
+                document.getElementById("body").style.backgroundColor = "red";
+            }
+            document.getElementById("numC").innerHTML = "Number Correct: " + numberCorrect;
+            document.getElementById("numW").innerHTML = "Number Wrong: " + numberWrong;
+            document.getElementById("perc").innerHTML = "Percentage Correct: " + (numberCorrect / numberOfQuestions) * 100 + "%"; 
+            }
+    </script>
+    </body>
+</html>
